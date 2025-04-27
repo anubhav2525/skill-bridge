@@ -95,7 +95,7 @@ const OurTeachers = () => {
     },
   ];
   return (
-    <div className="pt-16 md:pt-28 lg:pt-32 pb-4 text-center w-full">
+    <div className="bg-gray-50 pt-16 md:pt-28 lg:pt-32 pb-4 text-center w-full">
       <h2 className="text-3xl font-bold pb-2">Our Teachers</h2>
       <p className="text-lg md:text-xl pb-12 ">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste,
@@ -127,8 +127,6 @@ const OurTeachers = () => {
                     width={30}
                   />
                 </Link>
-              
-            
               </div>
             </div>
           </div>

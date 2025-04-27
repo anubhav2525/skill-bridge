@@ -1,6 +1,6 @@
 "use client";
 import CustomSelect from "@/components/ui/custom-select";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import {
   Sheet,
@@ -14,15 +14,6 @@ import {
 } from "@/components/ui/sheet";
 import { Search, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
 import { courses } from "@/constants/courses";
 import CourseCard from "@/components/course-card/course-card";
 import Subscribe from "@/components/landing-page/subscribe/subscribe";
@@ -80,9 +71,9 @@ const CoursesPage = () => {
   };
 
   return (
-    <section className="w-full">
+    <section className="w-full ">
       <Sheet>
-        <div className="w-full bg-gray-50">
+        <div className="w-full bg-white">
           <div className="w-full max-w-7xl mx-auto  py-12 px-4">
             <h1 className="text-4xl font-bold">Courses Page</h1>
             <p className="pt-2 text-lg">Explore our wide range of courses.</p>
@@ -90,21 +81,21 @@ const CoursesPage = () => {
             <div className="flex flex-col md:flex-row gap-4 w-full my-6 ">
               <div className="w-full flex">
                 <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 py-3 px-4 rounded-l-lg focus:outline-none  text-black "
+                  placeholder="Search for courses..."
+                  className="flex-1 py-3 px-4 rounded-l-lg focus:outline-none  text-black bg-gray-50 "
                 />
-                <button className="bg-orange-500 text-white px-6 rounded-r-lg font-semibold hover:bg-orange-600 flex items-center gap-2">
-                  <Search /> <span className="hidden md:flex">Search</span>
+                <button className="bg-orange-500 text-white px-6 rounded-r-lg font-normal hover:bg-orange-600 flex items-center gap-1">
+                  <Search size={18} />{" "}
+                  <span className="hidden md:flex ">Search</span>
                 </button>
               </div>
               <SheetTrigger asChild>
                 <Button
                   variant="outline"
-                  className="h-full flex bg-white border-none"
+                  className="h-full flex bg-gray-50   py-3 px-4"
                 >
-                  <SlidersHorizontal />
-                  <span className="text-gray-500">Filter</span>
+                  <SlidersHorizontal size={18} />{" "}
+                  <span className="hidden md:flex ">Filter</span>
                 </Button>
               </SheetTrigger>
             </div>
@@ -120,7 +111,7 @@ const CoursesPage = () => {
               <div className="w-full  pt-4">
                 <form
                   onSubmit={handleSubmit(onSubmit)}
-                  className=" flex flex-col items-start gap-4 w-full "
+                  className="flex flex-col items-start gap-4 w-full"
                 >
                   <CustomSelect
                     name="category"
@@ -168,42 +159,39 @@ const CoursesPage = () => {
               </div>
               <SheetFooter className="pt-4">
                 <SheetClose asChild>
-                  <Button type="submit">Apply</Button>
+                  <Button
+                    type="submit"
+                    variant="outline"
+                    className="bg-orange-500 text-white px-6 font-normal hover:bg-orange-600 flex items-center hover:text-white"
+                  >
+                    Apply
+                  </Button>
                 </SheetClose>
               </SheetFooter>
             </SheetContent>
-            {/* filter options  */}
-            {/* <div className="w-full flex items-center">
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="p-4 flex flex-col items-start gap-4 w-full "
-            >
-              <CustomSelect
-                name="jobTitle"
-                label="Job title, keywords..."
-                options={categoryOptions}
-                control={control}
-              />
-
-              <button
-                type="submit"
-                className="bg-blue-600 text-white px-4 py-2 rounded-xl shadow hover:bg-blue-700"
-              >
-                Apply Filter
-              </button>
-            </form>
-          </div> */}
           </div>
         </div>
 
-        <div className="w-full max-w-7xl mx-auto py-12 px-4">
-          {/* Course cards will go here */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-            {courses.map((course, item) => (
-              <CourseCard key={item} {...course} />
-            ))}
-          </div>        
+        <div className="w-full bg-gray-50 ">
+          <div className="w-full max-w-7xl mx-auto py-12 px-4">
+            {/* Course cards will go here */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+              {courses.map((course, item) => (
+                <CourseCard key={item} {...course} />
+              ))}
+            </div>
+          </div>
+
+          <div className="w-full max-w-7xl mx-auto p-4 flex justify-between items-center">
+            <Button className="bg-orange-500 text-white py-3 font-normal hover:bg-orange-600 flex items-center justify-center gap-1">
+              <span className="hidden md:flex ">Previous</span>
+            </Button>
+            <Button className="bg-orange-500 text-white py-3 font-normal hover:bg-orange-600 flex items-center justify-center gap-1">
+              <span className="hidden md:flex ">Next</span>
+            </Button>
+          </div>
         </div>
+
         <Subscribe />
       </Sheet>
     </section>

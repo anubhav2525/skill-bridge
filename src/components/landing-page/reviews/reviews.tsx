@@ -48,7 +48,7 @@ const Reviews =()=> {
   const { name, role, review, stars } = testimonials[index];
 
   return (
-    <section className="bg-gray-100 py-16 md:py-28 lg:py-32 text-center px-4">
+    <section className="bg-white py-16 md:py-28 lg:py-32 text-center px-4">
       <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
         What our customer say
       </h2>

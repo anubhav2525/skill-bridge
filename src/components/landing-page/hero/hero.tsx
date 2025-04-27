@@ -1,5 +1,6 @@
 "use client";
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -39,7 +40,7 @@ const Hero = () => {
   return (
     <div className="relative flex h-screen w-full  flex-col items-center justify-center overflow-hidden">
       <h2 className="relative z-20 mx-auto max-w-4xl text-center text-2xl font-bold text-balance text-white md:text-4xl lg:text-6xl">
-        Free Online
+        Free Online{" "}
         <span className="relative z-20 inline-block rounded-xl bg-blue-500/40 px-4 py-1 text-white underline decoration-sky-500 decoration-[6px] underline-offset-[16px] backdrop-blur-sm">
           Courses
         </span>{" "}
@@ -51,9 +52,12 @@ const Hero = () => {
       </p>
 
       <div className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4">
-        <button className="rounded-md bg-sky-600 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-sky-700 focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-black focus:outline-none">
-          Join the club
-        </button>
+        <Link
+          href={"/courses"}
+          className="rounded-md bg-sky-600 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-sky-700 focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
+        >
+          Explore
+        </Link>
         <button className="rounded-md border border-white/20 bg-white/10 px-6 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-black focus:outline-none">
           Read more
         </button>
@@ -77,7 +81,7 @@ export default Hero;
 
 const Stats = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 py-8">      
+    <div className="flex flex-col items-center justify-center gap-4 py-8">
       <div className="flex gap-4 md:gap-8 items-center">
         <div className="flex flex-col items-center">
           <span className="text-3xl font-bold text-white">100+</span>

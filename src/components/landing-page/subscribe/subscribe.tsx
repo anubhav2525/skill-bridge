@@ -16,8 +16,11 @@ const Subscribe = () => {
         <h2 className="text-white text-3xl md:text-4xl font-bold mb-2">
           Register now for <span className="text-gradient">get</span>
         </h2>
-        <h2 className="text-white text-3xl md:text-4xl font-bold mb-4">
-          discount every courses <span className="text-gradient">20%</span>
+        <h2 className="text-white text-3xl md:text-4xl font-bold mb-2">
+          discount every courses{" "}
+          <span className="text-gradient text-orange-600">
+            20%
+          </span>
         </h2>
         <p className="text-gray-400 max-w-xl mx-auto mb-6">
           Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Sed

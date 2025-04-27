@@ -4,7 +4,7 @@ import { courses } from "@/constants/courses";
 
 const FeaturedCourse = () => {
   return (
-    <section className="w-full py-16 md:py-28 lg:py-32 bg-slate-100">
+    <section className="w-full py-16 md:py-28 lg:py-32 bg-white px-4">
       <div className="w-full max-w-7xl mx-auto">
         <div className="text-center pb-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800">

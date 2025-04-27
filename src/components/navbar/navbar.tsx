@@ -25,7 +25,7 @@ const NavbarUI = () => {
     },
     {
       name: "Contact",
-      link: "/contact",
+      link: "/contact-us",
     },
     {
       name: "Courses",
@@ -43,12 +43,12 @@ const NavbarUI = () => {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <Link href="/sign-in">
-              <NavbarButton variant="secondary">Sign In</NavbarButton>
-            </Link>
-            <Link href="/sign-up">
-              <NavbarButton variant="primary">Sign Up</NavbarButton>
-            </Link>
+            <NavbarButton variant="secondary" href="/sign-in">
+              Sign In
+            </NavbarButton>
+            <NavbarButton variant="primary" href="/sign-up">
+              Sign Up
+            </NavbarButton>
           </div>
         </NavBody>
 
@@ -77,21 +77,21 @@ const NavbarUI = () => {
               </Link>
             ))}
             <div className="flex w-full flex-col gap-4">
-            <Link
+              <Link
                 href="/sign-in"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="relative text-neutral-600 dark:text-neutral-300"
               >
-                <span className="block">Sign In</span>                
+                <span className="block">Sign In</span>
               </Link>
-              <Link href="/sign-up">
-                <NavbarButton
-                  variant="primary"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Sign Up
-                </NavbarButton>
-              </Link>
+
+              <NavbarButton
+                href="/sign-up"
+                variant="primary"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Sign Up
+              </NavbarButton>
             </div>
           </MobileNavMenu>
         </MobileNav>

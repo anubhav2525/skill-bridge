@@ -16,7 +16,7 @@ const FeaturedCategory = () => {
   ];
 
   return (
-    <section className="bg-gray-100 py-16 md:py-28 lg:py-32 px-4">
+    <section className="bg-gray-50 py-16 md:py-28 lg:py-32 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         {/* Left Text Content */}
         <div>
