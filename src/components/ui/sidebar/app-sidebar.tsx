@@ -1,4 +1,5 @@
-import * as React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   Sidebar,
   SidebarContent,
@@ -16,156 +17,151 @@ import { NavSecondary } from "./nav-secondary";
 import { NavUser } from "./nav-user";
 import Link from "next/link";
 
-// This is sample data.
-const data = {
-  versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+const AdminSidebar = [
+  {
+    title: "GENERAL",
+    url: "#",
+    items: [
+      {
+        title: "Visit Site",
+        url: "/",
+      },
+      {
+        title: "Dashboard",
+        url: "/dashboard",
+      },
+    ],
   },
-  navSecondary: [
-    {
-      title: "Support",
-      url: "#",
-      icon: LifeBuoy,
-    },
-    {
-      title: "Feedback",
-      url: "#",
-      icon: Send,
-    },
-  ],
-  navMain: [
-    {
-      title: "Getting Started",
-      url: "#",
-      items: [
-        {
-          title: "Installation",
-          url: "#",
-        },
-        {
-          title: "Project Structure",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Building Your Application",
-      url: "#",
-      items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "API Reference",
-      url: "#",
-      items: [
-        {
-          title: "Components",
-          url: "#",
-        },
-        {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Architecture",
-      url: "#",
-      items: [
-        {
-          title: "Accessibility",
-          url: "#",
-        },
-        {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
-    },
-  ],
-};
+  {
+    title: "CONTENT",
+    url: "#",
+    items: [
+      {
+        title: "Blogs",
+        url: "/blogs",
+      },
+
+      {
+        title: "Courses",
+        url: "/courses",
+      },
+      {
+        title: "Categories",
+        url: "/categories",
+      },
+      {
+        title: "Enrollments",
+        url: "/enrollments",
+      },
+      {
+        title: "Users",
+        url: "/users",
+      },
+    ],
+  },
+  {
+    title: "REPORTS",
+    url: "#",
+    items: [
+      { title: "Contact Queries", url: "/contact-queries" },
+      {
+        title: "Settings",
+        url: "/settings",
+      },
+    ],
+  },
+];
+
+const LearnerSidebar = [
+  {
+    title: "GENERAL",
+    url: "#",
+    items: [
+      {
+        title: "Home",
+        url: "/",
+      },
+      {
+        title: "Dashboard",
+        url: "/dashboard",
+      },
+    ],
+  },
+  {
+    title: "CONTENT",
+    url: "#",
+    items: [
+      {
+        title: "Programmes",
+        url: "/programmes",
+      },
+      {
+        title: "Tasks & Assignments",
+        url: "/tasks-assignments",
+      },
+      { title: "Quizzes", url: "/quizzes" },
+    ],
+  },
+];
+const TrainerSidebar = [
+  {
+    title: "GENERAL",
+    url: "#",
+    items: [
+      {
+        title: "Home",
+        url: "/",
+      },
+      {
+        title: "Dashboard",
+        url: "/dashboard",
+      },
+    ],
+  },
+  {
+    title: "CONTENT",
+    url: "#",
+    items: [
+      {
+        title: "Programmes",
+        url: "/programmes",
+      },
+      {
+        title: "Tasks & Assignments",
+        url: "/tasks-assignments",
+      },
+      { title: "Quizzes", url: "/quizzes" },
+    ],
+  },
+];
 
 const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
+  const [role, setRole] = useState("ADMIN");
+  const data = {
+    user: {
+      name: "shadcn",
+      email: "m@example.com",
+      avatar: "/avatars/shadcn.jpg",
+    },
+    navSecondary: [
+      {
+        title: "Support",
+        url: "#",
+        icon: LifeBuoy,
+      },
+      {
+        title: "Feedback",
+        url: "#",
+        icon: Send,
+      },
+    ],
+    navMain:
+      role === "ADMIN"
+        ? AdminSidebar
+        : role === "LEARNER"
+        ? LearnerSidebar
+        : TrainerSidebar,
+  };
   return (
     <Sidebar {...props}>
       <SidebarHeader>
@@ -177,8 +173,8 @@ const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
                   <GalleryVerticalEnd className="size-4" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">Documentation</span>
-                  <span className="">v1.0.0</span>
+                  <span className="font-semibold">Skill Bridge</span>
+                  <span className="">{role}</span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -194,7 +190,7 @@ const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
               <SidebarMenu>
                 {item.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={item.isActive}>
+                    <SidebarMenuButton asChild>
                       <a href={item.url}>{item.title}</a>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

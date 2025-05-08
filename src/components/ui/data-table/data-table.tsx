@@ -31,6 +31,8 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
   filterColumn?: string;
   filterPlaceholder?: string;
+  reloadBtnAction?: () => void;
+  addBtnAction?: string;
 }
 
 export function DataTable<TData, TValue>({
@@ -38,6 +40,8 @@ export function DataTable<TData, TValue>({
   data,
   filterColumn,
   filterPlaceholder = "Filter...",
+  reloadBtnAction,
+  addBtnAction,
 }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] =
@@ -73,6 +77,8 @@ export function DataTable<TData, TValue>({
         table={table}
         filterColumn={filterColumn}
         filterPlaceholder={filterPlaceholder}
+        reloadBtnAction={reloadBtnAction}
+        addLink={addBtnAction}
       />
       <div className="rounded-md border">
         <Table>
